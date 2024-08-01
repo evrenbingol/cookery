@@ -1,0 +1,16 @@
+
+{% extends "../base_generic.html" %}
+
+
+{% block content %}
+
+    {% if instructor_list %}
+    <ul>
+    {% for instructor in instructor_list %}
+        <li><a href="{% url 'courses:instructor_details' instructor.id %}">{{ instructor.email }}</a></li>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>No Instructor are available.</p>
+    {% endif %}
+{% endblock %}

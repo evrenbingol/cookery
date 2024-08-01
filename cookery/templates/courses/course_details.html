@@ -1,0 +1,22 @@
+
+
+{% extends "../base_generic.html" %}
+
+
+{% block content %}
+<form action="{% url 'courses:add' course.id %}" method="post">
+{% csrf_token %}
+<fieldset>
+    <legend><h1>{{ course.name }}</h1></legend>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <input type="text" name="details" id="details" value={{ course.details }}>
+    
+    <label>Details</label><br>
+
+    <input type="text" name="name" id="name" value={{ course.name }}>
+    <label>Name
+    
+</fieldset>
+<input type="submit" value="Update">
+</form>
+{% endblock %}
